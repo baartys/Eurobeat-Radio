@@ -10,14 +10,14 @@ async def on_ready():
 
 
 @client.command(aliases=['p', 'pla', 'join', 'j'])
-async def play(ctx, url: str = 'http://stream.laut.fm/eurobeat'):
+async def play(ctx, url: str = 'http://stream.eurobeat.xyz'):
     channel = ctx.message.author.voice.channel
     global player
     try:
         player = await channel.connect()
     except:
         pass
-    player.play(FFmpegPCMAudio('http://stream.laut.fm/eurobeat'))
+    player.play(FFmpegPCMAudio('http://stream.eurobeat.xyz'))
     await ctx.send("**Started playing!**")
 
 
@@ -30,5 +30,5 @@ async def stop(ctx):
 
 @client.command(aliases=['i'])
 async def info(ctx):
-    await ctx.send("**Info about the Eurobeat FM**\nhttps://laut.fm/eurobeat")
+    await ctx.send("**Info about the Eurobeat FM**\nhttp://stream.laut.fm/eurobeat")
 client.run("TOKEN")
